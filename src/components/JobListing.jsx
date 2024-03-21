@@ -4,8 +4,9 @@ import {FaMapMarker} from "react-icons/fa"
 const JobListing = ({job}) => {
 
   const [showsetDescription, setShowsetDescription] = useState(false)
-
+  
   let description = job.description;
+
 
   if (!showsetDescription) {
     description = description.substring(0,90) + '...'

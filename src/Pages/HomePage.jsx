@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import Hero from "../components/Hero";
+import HomeCard from "../components/HomeCard";
+import ViewAllJobs from "../components/ViewAllJobs";
+import JobListings from "../components/JobListings";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <>
+      <Hero />
+      <HomeCard />
+      <JobListings/>
+      <ViewAllJobs />
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;
