@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/logo (3).png";
 
 const Navbar = () => {
@@ -9,35 +9,44 @@ const Navbar = () => {
         <div class="flex h-20 items-center justify-between">
           <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
-            <Link
-              class="flex flex-shrink-0 items-center mr-4"
-              to="/"
-            >
+            <NavLink classna="flex flex-shrink-0 items-center mr-4" to="/">
               <img class="h-10 w-auto" src={logo} alt="React Jobs" />
               <span class="hidden md:block text-white text-2xl font-bold ml-2">
                 React Jobs
               </span>
-            </Link>
+            </NavLink>
             <div class="md:ml-auto">
               <div class="flex space-x-2">
-                <Link
+                <NavLink
                   to="/"
-                  class="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      : "text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  }
                 >
                   Home
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/jobs"
-                  class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      : "text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  }
                 >
                   Jobs
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/add-job"
-                  class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      : "text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  }
                 >
                   Add Job
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>
