@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
-const Spinner = () => {
+const override = {
+  display: "block",
+  margin: "100px auto",
+};
+
+const Spinner = ({ loading }) => {
   return (
-    <div>Spinner</div>
-  )
-}
+    <>
+      <ClipLoader
+        cssOverride={override}
+        color="#4ee3ac"
+        loading={loading}
+        size={150}
+      />
+    </>
+  );
+};
 
-export default Spinner
+export default Spinner;
