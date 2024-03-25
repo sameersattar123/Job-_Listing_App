@@ -6,8 +6,7 @@ import { toast } from "react-toastify";
 const JobPage = ({deleteJob}) => {
   const { id } = useParams();
   const job = useLoaderData();
-  const navigate = useNavigate()
-  // console.log(job);
+  const navigate = useNavigate();
 
   const onDeleteJob = async(id) => {
     const confirm = window.confirm(
@@ -94,7 +93,7 @@ const JobPage = ({deleteJob}) => {
               <div class="bg-white p-6 rounded-lg shadow-md mt-6">
                 <h3 class="text-xl font-bold mb-6">Manage Job</h3>
                 <Link
-                  to={`/edit-job//${job.id}`}
+                  to={`/edit-job/${job.id}`}
                   class="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Edit Job
