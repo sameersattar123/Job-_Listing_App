@@ -1,38 +1,40 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const AddJobPage = () => {
+const AddJobPage = ({ addJobSubmit }) => {
+  const navigate = useNavigate();
 
-  const [title, setTitle] = useState('')
-  const [type, setType] = useState('Full-Time')
-  const [description, setDescription] = useState('')
-  const [location, setLocation] = useState('')
-  const [salary, setSalary] = useState('Under $50K')
-  const [companyName, setCompanyName] = useState('')
-  const [companyDescription, setCompanyDescription] = useState('')
-  const [companyPhone, setCompanyPhone] = useState('')
-  const [companyEmail, setCompanyEmail] = useState('')
+  const [title, setTitle] = useState("");
+  const [type, setType] = useState("Full-Time");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [salary, setSalary] = useState("Under $50K");
+  const [companyName, setCompanyName] = useState("");
+  const [companyDescription, setCompanyDescription] = useState("");
+  const [companyPhone, setCompanyPhone] = useState("");
+  const [companyEmail, setCompanyEmail] = useState("");
 
-
-  const handleSubmit  = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const newJob = {
-      title : title,
-      type : type,
-      description : description,
-      location : location,
-      salary : salary,
-      company : {
-        name : companyName,
-        description : companyDescription,
-        companyPhone : companyPhone,
-        companyEmail : companyEmail
-      }
-    }
+      title: title,
+      type: type,
+      description: description,
+      location: location,
+      salary: salary,
+      company: {
+        name: companyName,
+        description: companyDescription,
+        companyPhone: companyPhone,
+        companyEmail: companyEmail,
+      },
+    };
 
-    console.log(newJob)
-  }
+    addJobSubmit(newJob);
 
+    return navigate("/jobs");
+  };
 
   return (
     <>
