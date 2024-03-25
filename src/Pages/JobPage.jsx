@@ -1,11 +1,25 @@
 import React from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 
-const JobPage = () => {
+const JobPage = ({deleteJob}) => {
   const { id } = useParams();
   const job = useLoaderData();
-  console.log(job);
+  const navigate = useNavigate()
+  // console.log(job);
+
+  const onDeleteJob = async(id) => {
+    const confirm = window.confirm(
+      'Are you sure you want to delete this listing?'
+    );
+
+    if (!confirm) return;
+
+    await deleteJob(id)
+
+    navigate("/jobs")
+
+  }
   return (
     <>
       <section>
@@ -82,7 +96,7 @@ const JobPage = () => {
                 >
                   Edit Job
                 </Link>
-                <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                <button onClick={() => onDeleteJob(job.id)} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
                   Delete Job
                 </button>
               </div>
